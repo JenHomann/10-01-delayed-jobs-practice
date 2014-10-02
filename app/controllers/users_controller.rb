@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     
     if @user.save
+      UserMailer.welcome(@user).deliver
       redirect_to user_path(@user.id), :notice => "User has been successfully created"
     else
       render "new"
