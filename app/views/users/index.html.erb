@@ -1,0 +1,18 @@
+<h1>User index</h1>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Email</td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+  <% @users.each do |u| %>
+    <tr>
+      <td><%= link_to(u.name, user_path(u.id)) %></td>
+      <td><%= u.email %></td>
+      <td><%= link_to("Edit", edit_user_path(u.id)) %></td>
+      <td><%= link_to("Delete", user_path(u.id), method: :delete)%></td>
+    </tr>
+  <% end %>
+</table>
